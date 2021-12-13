@@ -8,5 +8,11 @@
     "start": "node server.js"
   },
   "author": "Judy, Max, Henri and Ben",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^4.2.1"
+  }
 }

@@ -24,6 +24,13 @@ function routes(app) {
 
     //API routes
     app.get('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
+    // app.get('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
+    // app.get('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
+    // app.post('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
+    // app.get('/doctors', cors(corsOptions), AppointmentController.getAvailableAppointments);
+    // app.post('/doctors', cors(corsOptions), AuthController.getAvailableAppointments);
+
+
 }
 
 module.exports = routes;

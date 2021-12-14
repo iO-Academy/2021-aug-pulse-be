@@ -14,9 +14,16 @@ class AppointmentsService {
     }
 
     async getDoctor(req) {
-        const doctorid = {"doctorID":Number(req.query.doctorid)};
-        logger.info("ID passed to getDoctor: " + doctorid.doctorID);
-        return await AppointmentRepository.getDoctor(doctorid);
+        if (Object.keys(req.query).length === 0) {
+            let doctorid = {};
+            logger.info("Get all doctors." + doctorid);
+            return await AppointmentRepository.getDoctor(doctorid);
+        }
+        else {
+            let doctorid = {"doctorID":Number(req.query.doctorid)};
+            logger.info("ID passed to getDoctor (single doctor): " + doctorid.doctorID);
+            return await AppointmentRepository.getDoctor(doctorid);
+        }
     }
 }
 

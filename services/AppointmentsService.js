@@ -16,7 +16,7 @@ class AppointmentsService {
     async getDoctor(req) {
         if (Object.keys(req.query).length === 0) {
             let doctorid = {};
-            logger.info("Get all doctors." + doctorid);
+            logger.info("Get all doctors.");
             return await AppointmentRepository.getDoctor(doctorid);
         }
         else {

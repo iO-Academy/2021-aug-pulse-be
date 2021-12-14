@@ -31,7 +31,7 @@ function routes(app) {
     // app.get('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
     // app.post('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
 
-    // Takes 'doctorid' and 'appdate' as url queries.
+    // Takes 'doctorid' and 'appdate' as url queries. Returns all the doctors if no url query specified
     app.get('/doctors', cors(corsOptions), AppointmentController.getDoctor);
 
     // app.post('/doctors', cors(corsOptions), AuthController.getAvailableAppointments);

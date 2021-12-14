@@ -1,0 +1,19 @@
+{
+  "name": "pulse-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Judy, Max, Henri and Ben",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^4.2.1",
+    "winston": "^3.3.3"
+  }
+}

@@ -6,7 +6,7 @@ const client = new mongoClient(url, {useNewUrlParser: true, useUnifiedTopology: 
 
 async function connect() {
     await client.connect();
-    // logger.info(`MongoDB client is connected...`);
+    logger.info(`MongoDB client is connected...`);
     return client.db(dbName);
 }
 

@@ -23,11 +23,17 @@ function routes(app) {
     // });
 
     //API routes
+
+    // Takes 'doctorid' and 'appdate' as url queries.
     app.get('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
+
     // app.get('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
     // app.get('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
     // app.post('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
-    // app.get('/doctors', cors(corsOptions), AppointmentController.getAvailableAppointments);
+
+    // Takes 'doctorid' and 'appdate' as url queries.
+    app.get('/doctors', cors(corsOptions), AppointmentController.getDoctor);
+
     // app.post('/doctors', cors(corsOptions), AuthController.getAvailableAppointments);
 
 

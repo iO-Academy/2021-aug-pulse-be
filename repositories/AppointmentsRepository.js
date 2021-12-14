@@ -13,24 +13,22 @@ class AppointmentsRepository {
     }
 
     async getAppointments(date) {
-        // logger.info("getting all todos");
+        logger.info("getting appointments");
         try {
             return await this.appointmentsCollection.find(date).toArray();
         }
         catch (err) {
-            // logger.error(`getTodos error: ${err}`);
-            console.log(`getAppointments error! ${err}`);
+            logger.error(`getAppointments error: ${err}`);
         }
     }
 
     async getDoctor(id) {
-        // logger.info("getting all todos");
+        logger.info("getting doctor");
         try {
             return await this.doctorsCollection.find(id).toArray();
         }
         catch (err) {
-            // logger.error(`getTodos error: ${err}`);
-            console.log(`getDoctor error! ${err}`);
+            logger.error(`getDoctor error: ${err}`);
         }
     }
 }

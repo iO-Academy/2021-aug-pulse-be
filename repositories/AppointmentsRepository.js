@@ -24,8 +24,13 @@ class AppointmentsRepository {
 
     async getDoctor(id) {
         logger.info("getting doctor");
+        const fields = {
+                projection: {
+                    "doctorEmail": Number(0),
+                    "doctorPassword": Number(0)
+                }};
         try {
-            return await this.doctorsCollection.find(id).toArray();
+            return await this.doctorsCollection.find(id, fields).toArray();
         }
         catch (err) {
             logger.error(`getDoctor error: ${err}`);

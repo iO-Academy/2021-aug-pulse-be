@@ -27,9 +27,6 @@ function routes(app) {
     // Takes 'doctorid' and 'appdate' as url queries.
     app.get('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
 
-    // app.get('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
-    // app.get('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
-
     // Accepts complete json object for an appointment in POST request body (all fields and valid data types required) or the request is rejected.
     app.post('/appointments', cors(corsOptions), AppointmentController.bookAppointment);
 

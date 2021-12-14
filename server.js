@@ -1,7 +1,7 @@
 const express = require('express');
 // const expressHandlebars = require('express-handlebars');
 const routes = require('./config/routes');
-// const logger = require('./logger/logger');
+const logger = require('./logger/logger');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3001;
@@ -24,4 +24,4 @@ app.use(express.static('public'));
 //load routes
 routes(app);
 
-app.listen(port, () => console.log(`Pulse api running on port ${port}`));
+app.listen(port, () => logger.info(`Pulse api running on port ${port}`));

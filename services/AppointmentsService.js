@@ -18,13 +18,23 @@ class AppointmentsService {
             let doctorid = {};
             logger.info("Get all doctors." + doctorid);
             return await AppointmentRepository.getDoctor(doctorid);
-        }
-        else {
-            let doctorid = {"doctorID":Number(req.query.doctorid)};
+        } else {
+            let doctorid = {"doctorID": Number(req.query.doctorid)};
             logger.info("ID passed to getDoctor (single doctor): " + doctorid.doctorID);
             return await AppointmentRepository.getDoctor(doctorid);
         }
     }
-}
+
+    async bookAppointment(req) {
+        logger.info("booked new appointment: " + req.body);
+        try {
+            const bookapp =  req.body;
+            return await AppointmentRepository.bookAppointment(bookapp);
+        } catch (err) {
+            logger.error(`booking new appointment error: ${err}`);
+        }
+    }
+
+    }
 
 module.exports = new AppointmentsService;

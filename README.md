@@ -9,4 +9,4 @@ Features appointment booking and pre-registered user auth.
 - Run 'npm start'.
 ---------------------------
 
-API can be accessed at localhost:3001 by default.
+API can be accessed at localhost:3001 by default. See config/routes.js for more usage info.

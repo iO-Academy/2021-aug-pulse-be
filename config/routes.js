@@ -1,5 +1,5 @@
 const AppointmentController = require('../controllers/AppointmentsController');
-// const AuthController = require('../controllers/AuthController');
+const AuthController = require('../controllers/AuthController');
 const cors = require('cors');
 let corsOptions = {
     origin: '*',
@@ -33,7 +33,7 @@ function routes(app) {
     // Takes 'doctorid' and 'appdate' as url queries.
     app.get('/doctors', cors(corsOptions), AppointmentController.getDoctor);
 
-    // app.post('/doctors', cors(corsOptions), AuthController.getAvailableAppointments);
+    app.post('/login', cors(corsOptions), AuthController.genHashedPass);
 
 
 }

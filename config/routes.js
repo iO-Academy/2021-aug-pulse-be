@@ -18,7 +18,6 @@ function routes(app) {
     //Front-end routes
     // app.get('/', cors(corsOptions), (req, res, next) => {
     //     //basic status page
-    //     //put contents of the view 'home.handlebars' in the template 'main.handlebars'
     //     res.render('home', {"title": "API Status", "description":"Running with no issues!"});
     // });
 
@@ -27,13 +26,17 @@ function routes(app) {
     // Takes 'doctorid' and 'appdate' as url queries.
     app.get('/appointments', cors(corsOptions), AppointmentController.getAvailableAppointments);
 
-    // Accepts complete json object for an appointment in POST request body (all fields and valid data types required) or the request is rejected.
+    // Accepts complete json object for an appointment in POST request body (all fields and valid data types required)
+    // or the request is rejected.
     app.post('/appointments', cors(corsOptions), AppointmentController.bookAppointment);
 
     // Takes 'doctorid' and 'appdate' as url queries.
     app.get('/doctors', cors(corsOptions), AppointmentController.getDoctor);
 
-    app.post('/login', cors(corsOptions), AuthController.genHashedPass);
+    // Takes a JSON object in the body of a POST request ("doctorEmail" and "password" properties) and returns
+    // true/false if the email is in the db but the password is right/wrong. If the email doesn't exist then it returns the
+    // string "Invalid email!".
+    app.post('/login', cors(corsOptions), AuthController.comparePass);
 
 
 }

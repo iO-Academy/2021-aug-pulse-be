@@ -7,6 +7,7 @@ class AppointmentsRepository {
 
     constructor() {
         connect().then(db => {
+            logger.info(`MongoDB client (appointments) connected...`);
             this.appointmentsCollection = db.collection('appointments');
             this.doctorsCollection = db.collection('doctors');
         });

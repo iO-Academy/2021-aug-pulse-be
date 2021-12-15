@@ -16,8 +16,7 @@ class AppointmentsRepository {
         logger.info("getting appointments");
         try {
             return await this.appointmentsCollection.find(date).toArray();
-        }
-        catch (err) {
+        } catch (err) {
             logger.error(`getAppointments error: ${err}`);
         }
     }
@@ -25,16 +24,26 @@ class AppointmentsRepository {
     async getDoctor(id) {
         logger.info("getting doctor");
         const fields = {
-                projection: {
-                    "doctorEmail": Number(0),
-                    "doctorPassword": Number(0)
-                }};
+            projection: {
+                "doctorEmail": Number(0),
+                "doctorPassword": Number(0)
+            }
+        };
         try {
             return await this.doctorsCollection.find(id, fields).toArray();
-        }
-        catch (err) {
+        } catch (err) {
             logger.error(`getDoctor error: ${err}`);
         }
+    }
+
+    async bookAppointment(appointment) {
+        logger.info("book new appointment");
+        try {
+            return await this.appointmentsCollection.insertOne(appointment)
+        } catch (err) {
+            logger.error('newAppointment error: ${err}');
+        }
+
     }
 }
 

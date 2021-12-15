@@ -13,6 +13,11 @@ class AppointmentsController {
         AppointmentService.getDoctor(req).then(data => res.json(data));
     }
 
+    bookAppointment(req, res, next) {
+        logger.info('Controller: bookAppointment')
+        AppointmentService.bookAppointment(req).then(data => res.json(data));
+    }
+
 }
 
 module.exports = new AppointmentsController;

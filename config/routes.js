@@ -38,7 +38,6 @@ function routes(app) {
     // string "Invalid email!".
     app.post('/login', cors(corsOptions), AuthController.comparePass);
 
-
 }
 
 module.exports = routes;

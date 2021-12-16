@@ -1,12 +1,8 @@
 const AppointmentRepository = require('../repositories/AppointmentsRepository');
 const logger = require('../logger/logger');
-const bodyParser = require("body-parser");
 const Ajv = require("ajv");
 const ajv = new Ajv()
-// const additionalProperties = require("ajv/lib/vocabularies/applicator/additionalProperties");
-// const {ObjectId} = require("mongodb");
 
-//DO DATA THINGS HERE!!!!
 class AppointmentsService {
     async getAvailableAppointments(req) {
         // let id = {"_id":new ObjectId(todo.params.id)};
@@ -28,7 +24,7 @@ class AppointmentsService {
         }
     }
 
-    async bookAppointment(req) {
+    isValid(reqBody) {
         const checkFields = {
             type: "object",
             properties: {
@@ -43,9 +39,12 @@ class AppointmentsService {
             required: ["date", "timeID", "doctorID", "patientFirstName", "patientLastName", "patientEmail", "notes"],
             additionalProperties: false
         }
-        const validate = ajv.compile(checkFields)
+        const validate = ajv.compile(checkFields) // ajv = asynchronous javascript validator
+        return validate(reqBody);
+    }
 
-        const valid = validate(req.body);
+    async bookAppointment(req) {
+        const valid = this.isValid(req.body);
 
         if (valid) {
             try {

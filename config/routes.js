@@ -30,7 +30,7 @@ function routes(app) {
     // or the request is rejected.
     app.post('/appointments', cors(corsOptions), AppointmentController.bookAppointment);
 
-    // Takes 'doctorid' and 'appdate' as url queries. Returns all the doctors if no url query specified
+    // Takes 'doctorid' as url query. Returns all the doctors if no url query specified
     app.get('/doctors', cors(corsOptions), AppointmentController.getDoctor);
 
     // Takes a JSON object in the body of a POST request ("doctorEmail" and "password" properties) and responds with

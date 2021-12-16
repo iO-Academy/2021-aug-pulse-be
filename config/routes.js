@@ -37,7 +37,6 @@ function routes(app) {
     // a cookie "isAuthed=true" in the header if correct. If wrong returns a 401 http error.
     app.post('/login', cors(corsOptions), AuthController.comparePass);
 
-
 }
 
 module.exports = routes;

@@ -33,9 +33,8 @@ function routes(app) {
     // Takes 'doctorid' and 'appdate' as url queries. Returns all the doctors if no url query specified
     app.get('/doctors', cors(corsOptions), AppointmentController.getDoctor);
 
-    // Takes a JSON object in the body of a POST request ("doctorEmail" and "password" properties) and returns
-    // true/false if the email is in the db but the password is right/wrong. If the email doesn't exist then it returns the
-    // string "Invalid email!".
+    // Takes a JSON object in the body of a POST request ("doctorEmail" and "password" properties) and responds with
+    // a cookie "isAuthed=true" in the header if correct. If wrong returns a 401 http error.
     app.post('/login', cors(corsOptions), AuthController.comparePass);
 
 
